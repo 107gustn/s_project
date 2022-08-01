@@ -15,5 +15,13 @@
 		select * from membership where id = #{id}
 	</select>
 	
+	<select id="memberInfo" resultMap="member">
+		select * from membership
+	</select>
+	
+	<insert id="register">
+		insert into membership(id, pw, addr) values(#{id}, #{pw}, #{addr})
+	</insert>
+	
 
 </mapper>

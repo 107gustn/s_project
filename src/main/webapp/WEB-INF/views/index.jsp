@@ -8,7 +8,7 @@
 </head>
 <body>
 	<%@ include file="default/header.jsp" %>
-	index
+	<h1 align="center">index 페이지 입니다</h1>
 
 </body>
 </html>

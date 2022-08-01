@@ -34,6 +34,7 @@
 
 </head>
 <body>
+
 	<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 	<c:set var="contextPath" value="${pageContext.request.contextPath}"/>
 
@@ -48,6 +49,16 @@
 			<nav>
 				<ul>
 					<li><a href="${contextPath }/index">HOME</a></li>
+					
+					<li> 
+						<c:if test="${loginUser == null }">
+							<a href="${contextPath }/member/login">MEMBER_SHIP</a>
+						</c:if>
+						<c:if test="${loginUser != null }">
+							<a href="${contextPath }/member/memberInfo">MEMBER_SHIP</a>
+						</c:if>
+					</li>
+					
 					<li> 
 						<c:if test="${loginUser == null }">
 							<a href="${contextPath }/member/login">LOGIN</a>
@@ -56,9 +67,11 @@
 							<a href="${contextPath }/member/logout">LOGOUT</a>
 						</c:if>
 					</li>
+					
 				</ul>
 			</nav>
 		</div>
 	</div>
+	
 </body>
 </html>

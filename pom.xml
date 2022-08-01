@@ -153,6 +153,15 @@
 		    <version>1.3.2</version>
 		</dependency>
 		
+		<!-- https://mvnrepository.com/artifact/org.springframework.security/spring-security-web -->
+		<!-- 회원가입시 DB 저장하기전에 비밀번호를 암호화 시켜줌 -->
+		<dependency>
+		    <groupId>org.springframework.security</groupId>
+		    <artifactId>spring-security-web</artifactId>
+		    <version>${org.springframework-version}</version>
+		</dependency>
+		
+		
 		       
 	</dependencies>
     <build>

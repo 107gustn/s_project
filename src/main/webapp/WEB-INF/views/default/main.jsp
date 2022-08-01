@@ -8,8 +8,5 @@
 </head>
 <body>
 
-	<%@ include file="../default/header.jsp" %>
-	<h1 align="center">로그인 성공</h1>
-
 </body>
 </html>
