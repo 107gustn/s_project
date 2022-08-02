@@ -32,6 +32,9 @@
 				<tr>
 					<td colspan="2"><a href="register_form">회원가입</a></td>
 				</tr>
+				<tr>
+					<td colspan="2"><input type="checkbox" name="autoLogin">로그인 유지</td>
+				</tr>
 			</table>
 		</form>
 	</div>

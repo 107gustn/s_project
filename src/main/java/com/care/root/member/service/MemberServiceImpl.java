@@ -1,6 +1,8 @@
 package com.care.root.member.service;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -56,6 +58,47 @@ public class MemberServiceImpl implements MemberService{
 			e.printStackTrace();
 		}
 		return 0;
+	}
+	
+	public void delete(String id) {
+		mapper.delete(id);
+	}
+	
+	public void modifyForm(String id, Model model) {
+		MemberDTO dto = mapper.getUser(id); //사용자와 같은 정보를 가져옴
+		System.out.println(dto.getAddr());
+		String[] a = dto.getAddr().split(","); //split: 특정값을 기준으로 영역을 쪼개줌
+		System.out.println(a[0]);
+		System.out.println(a[1]);
+		System.out.println(a[2]);
+		
+		model.addAttribute("dto", dto); //가져온 값 model에 저장
+		model.addAttribute("addrs", a); //배열 형태로 저장된다
+		
+	}
+	
+	public void modify(HttpServletRequest req, String addr) {
+		
+		MemberDTO dto = new MemberDTO();
+		dto.setId(req.getParameter("id"));
+		dto.setAddr( addr );
+		if( req.getParameter("new_pw").equals("******") ) { //비밀번호가 수정이 안되었으면
+			dto.setPw(req.getParameter("old_pw"));
+		}else { //비밀번호가 수정이 되면 암호화 시켜서 값 저장
+			dto.setPw( en.encode( req.getParameter("new_pw") ) ); //인코더를 통해 평문으로 되어있는 비밀번호를 암호화
+		}
+		mapper.modify( dto );
+	}
+	
+	public void keepLogin(String id, String cookieId) {
+		Map<String, Object> map = new HashMap<String, Object>();
+		map.put("id", id);
+		map.put("cookieId", cookieId);
+		mapper.keepLogin(map);
+	}
+	
+	public MemberDTO getCookieUser(String cookie) {
+		return mapper.getCookieUser( cookie );
 	}
 
 }

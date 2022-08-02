@@ -9,6 +9,7 @@
 		<id property="id" column="id" /> <!-- primary값 설정 -->
 		<result property="pw" column="pw"/> <!-- 그외 일반값 설정 -->
 		<result property="addr" column="addr"/>
+		<result property="loginCookie" column="login_cookie"/>
 	</resultMap>
 	
 	<select id="getUser" resultMap="member"> <!-- resultMap을 통해 DB형식과 DTO형식을 맞춰줌 -->
@@ -23,5 +24,20 @@
 		insert into membership(id, pw, addr) values(#{id}, #{pw}, #{addr})
 	</insert>
 	
-
+	<delete id="delete">
+		delete from membership where id = #{id}
+	</delete>
+	
+	<update id="modify">
+		update membership set addr = #{addr}, pw = #{pw} where id = #{id}
+	</update>
+	
+	<update id="keepLogin">
+		update membership set login_cookie = #{cookieId} where id = #{id}
+	</update>
+	
+	<select id="getCookieUser" resultMap="member">
+		select * from membership where login_cookie = #{cookie}
+	</select>
+	
 </mapper>

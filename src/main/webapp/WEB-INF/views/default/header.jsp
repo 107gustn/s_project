@@ -51,12 +51,7 @@
 					<li><a href="${contextPath }/index">HOME</a></li>
 					
 					<li> 
-						<c:if test="${loginUser == null }">
-							<a href="${contextPath }/member/login">MEMBER_SHIP</a>
-						</c:if>
-						<c:if test="${loginUser != null }">
-							<a href="${contextPath }/member/memberInfo">MEMBER_SHIP</a>
-						</c:if>
+						<a href="${contextPath }/member/memberInfo">MEMBER_SHIP</a>
 					</li>
 					
 					<li> 

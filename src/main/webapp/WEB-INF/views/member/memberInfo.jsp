@@ -15,7 +15,7 @@
 	<h1 align="center">회 원 정 보</h1>
 	<br>
 	
-	<div class="wrap">
+	<div class="wrap" align="center">
 		<table border="1">
 			<tr>
 				<td>아이디</td>
