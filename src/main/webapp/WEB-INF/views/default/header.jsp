@@ -54,6 +54,8 @@
 						<a href="${contextPath }/member/memberInfo">MEMBER_SHIP</a>
 					</li>
 					
+					<li><a href="${contextPath }/board/boardAllList">BOARD</a></li>
+					
 					<li> 
 						<c:if test="${loginUser == null }">
 							<a href="${contextPath }/member/login">LOGIN</a>

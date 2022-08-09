@@ -19,7 +19,7 @@ public class LoginCheckIn extends HandlerInterceptorAdapter{
 			//response.sendRedirect("login");
 			response.setContentType("text/html; charset=utf-8"); //사용자 웹 브라우저로 어떠한 타입으로 사용자에게 응답할 것인지 //응답 방식
 			PrintWriter out = response.getWriter(); //사용자에게 메시지 전달해줌
-			out.print("<script>alert('로그인 먼저 진행!!!');location.href='login';</script>"); //사용자에게 메시지 전달됨
+			out.print("<script>alert('로그인 먼저 진행!!!');" + "location.href='"+ request.getContextPath() +"/member/login';</script>"); //사용자에게 메시지 전달됨 //절대경로 설정
 			return false; //사용자가 요청한 경로로 연결하지 않음
 		}
 		return true; //사용자가 요청한 경로로 연결

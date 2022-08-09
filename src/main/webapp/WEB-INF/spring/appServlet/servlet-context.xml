@@ -36,6 +36,7 @@
 			<mapping path="/member/memberInfo"/><!-- 인터셉터 연결 경로 -->
 			<mapping path="/member/info"/>
 			<mapping path="/member/modify_form"/>
+			<mapping path="/board/writeForm" />
 			<beans:ref bean="loginChk"/><!-- 빈 인터셉터 연결 -->
 		</interceptor>
 		
