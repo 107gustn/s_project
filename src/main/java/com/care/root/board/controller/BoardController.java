@@ -89,9 +89,4 @@ public class BoardController{
 		out.print( msg );
 	}
 	
-	@GetMapping("replyForm")
-	public String replyForm(int writeNo) {
-		return "board/replyForm";
-	}
-	
 }
