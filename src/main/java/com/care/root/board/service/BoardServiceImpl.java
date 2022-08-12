@@ -25,8 +25,24 @@ public class BoardServiceImpl implements BoardService {
 	@Autowired
 	BoardFileService bfs;
 	
-	public void boardAllList(Model model) {
-		model.addAttribute("boardList", mapper.boardAllList() );
+	public void boardAllList(Model model, int num) {
+		
+		System.out.println("boardAllList 실행");
+		
+		int pageLetter = 3; //한 페이지에 보일 글의 수
+		int allCount = mapper.selectBoardCount(); //총 글의 갯수
+		
+		int repeat = allCount / pageLetter;
+		if( allCount % pageLetter != 0 ) {
+			repeat += 1;
+		}
+		
+		int end = num * pageLetter;
+		int start = end + 1 - pageLetter;
+		
+		model.addAttribute("repeat", repeat);
+		
+		model.addAttribute("boardList", mapper.boardAllList( start, end ) );
 	}
 	
 	public String writeSave(MultipartHttpServletRequest mul, HttpServletRequest request) {

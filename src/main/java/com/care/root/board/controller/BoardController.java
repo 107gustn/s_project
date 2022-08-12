@@ -23,7 +23,6 @@ import com.care.root.board.service.BoardFileService;
 import com.care.root.board.service.BoardService;
 import com.care.root.common.SessionName;
 
-
 @Controller //컨트롤러 등록
 @RequestMapping("board") //기본경로 설정
 public class BoardController{
@@ -32,13 +31,14 @@ public class BoardController{
 	BoardService bs;
 	
 	@GetMapping("boardAllList")
-	public String boardAllList(Model model) {
-		bs.boardAllList(model);
+	public String boardAllList(Model model, @RequestParam(value="num", required = false, defaultValue = "1") int num) { //@RequestParam(넘어오는값 변수이름, 값이 없어도 실행시켜줌, 넘어오는 값이 없으면 1 저장): 사용자로부터 넘어오는 값을 받아서 처리
+		bs.boardAllList(model, num);
 		return "board/boardAllList";
 	}
 	
 	@GetMapping("writeForm")
 	public String writeForm() {
+		System.out.println("writeForm.....");
 		return "board/writeForm";
 	}
 	
